@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.9.+'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.21'
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+        gradlePluginPortal()
+    }
+}
+
+subprojects {
+
+    android {
+        compileSdkVersion(Versions.compileSdk)
+
+        defaultConfig {
+            minSdkVersion(Versions.minSdk)
+            targetSdkVersion(Versions.targetSdk)
+            versionCode = Versions.versionCode
+            versionName = Versions.versionName
+        }
+
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
