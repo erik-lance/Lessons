@@ -43,9 +43,9 @@ class MyAdapter(private val contacts: ArrayList<Contact>, private val myActivity
          *       a copy of the Contacts data in the Adapter, so you can modify the data here.
          * */
         myViewHolder.setDeleteBtnOnClickListener(View.OnClickListener {
-
-
-
+            // Send a delete request to the DB
+            val myDbHelper = MyDbHelper.getInstance(it.context)
+            myDbHelper!!.deleteContact(contacts[myViewHolder.adapterPosition])
         })
 
         return myViewHolder

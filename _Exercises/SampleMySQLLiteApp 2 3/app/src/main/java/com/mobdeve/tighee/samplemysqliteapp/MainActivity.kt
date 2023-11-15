@@ -26,16 +26,27 @@ class MainActivity : AppCompatActivity() {
                         result.data!!.getStringExtra(IntentKeys.LAST_NAME_KEY.name)!!,
                         result.data!!.getStringExtra(IntentKeys.FIRST_NAME_KEY.name)!!,
                         result.data!!.getStringExtra(IntentKeys.NUMBER_KEY.name)!!,
-                        result.data!!.getStringExtra(IntentKeys.IMAGE_URI_KEY.name)!!
+                        result.data!!.getStringExtra(IntentKeys.IMAGE_URI_KEY.name)!!,
+                        result.data!!.getLongExtra(IntentKeys.CONTACT_ID_KEY.name, -1)
                     )
                 )
                 myAdapter.notifyItemInserted(0)
             } else if (result.resultCode == ResultCodes.EDIT_RESULT.ordinal) { // EDIT
                 /* TODO: Logic for handling the edit return. Update the RecyclerView.
                  * */
+                val contactId = result.data!!.getLongExtra(IntentKeys.CONTACT_ID_KEY.name, -1)
+                val contactIndex = contacts.indexOfFirst { it.id == contactId }
 
+                // Update RecyclerView
+                contacts[contactIndex] = Contact(
+                    result.data!!.getStringExtra(IntentKeys.LAST_NAME_KEY.name)!!,
+                    result.data!!.getStringExtra(IntentKeys.FIRST_NAME_KEY.name)!!,
+                    result.data!!.getStringExtra(IntentKeys.NUMBER_KEY.name)!!,
+                    result.data!!.getStringExtra(IntentKeys.IMAGE_URI_KEY.name)!!,
+                    contactId
+                )
 
-
+                myAdapter.notifyItemChanged(contactIndex)
             }
         }
     }
