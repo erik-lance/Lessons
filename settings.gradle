@@ -1,0 +1,9 @@
+rootProject.name = "MOBDEVE_Lessons"
+
+// Contains list of modules to be included in the project
+include ':LectureMaterial_04_MovingBetweenActivities',
+    ':LectureMaterial_05_PassingDataBack',
+    ':LectureMaterial_06_Lifecycle',
+    ':SimpleMusicApp',
+    ':07C_General_Service',
+    ':_Exercises/SampleMySQLLiteApp_Solution'
