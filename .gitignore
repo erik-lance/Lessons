@@ -1,0 +1,21 @@
+# Android Studio
+*.iml
+/.idea
+/.gradle
+/local.properties
+/.externalNativeBuild
+
+# Gradle
+build/
+captures/
+
+# Proguard
+proguard-rules.pro
+
+# Android
+/app/build/
+/gradle/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
